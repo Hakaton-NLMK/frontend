@@ -1,0 +1,14 @@
+.App {
+  padding: 20px;
+}
+
+.switchContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.switchContainer span {
+  margin: 0 10px;
+}
