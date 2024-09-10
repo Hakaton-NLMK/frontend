@@ -24,7 +24,10 @@ function render(){
     })
     .then(data => {
       console.log('Response data:', data); 
-      
+         let d=document.getElementById('data')
+        d.innerText=data
+        d.style.border="2px solid black"
+        d.style.padding='25px'
     })
     .catch(error => {
       console.error('There was a problem with the fetch operation:', error);
