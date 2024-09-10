@@ -1,11 +1,16 @@
 import React, { ErrorInfo, ReactNode } from "react";
 import { Alert } from "@nlmk/ds-2.0";
 
+interface ErrorBoundaryProps {
+  children: ReactNode;
+  key: number;
+}
+
 export default class ErrorBoundary extends React.Component<
-  { children: ReactNode },
+  ErrorBoundaryProps,
   { hasError: boolean; error: Error | null }
 > {
-  constructor(props: { children: ReactNode }) {
+  constructor(props: ErrorBoundaryProps) {
     super(props);
     this.state = { hasError: false, error: null };
   }

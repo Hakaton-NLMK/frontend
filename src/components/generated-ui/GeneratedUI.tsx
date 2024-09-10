@@ -11,6 +11,7 @@ interface GeneratedUiProps {
 const GeneratedUi: React.FC<GeneratedUiProps> = ({ code }) => {
   const [Component, setComponent] = useState<React.FC | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [key, setKey] = useState(0);
 
   useEffect(() => {
     if (code) {
@@ -55,6 +56,7 @@ const GeneratedUi: React.FC<GeneratedUiProps> = ({ code }) => {
 
       setComponent(() => ExportedComponent);
       setError(null);
+      setKey((prevKey) => prevKey + 1); // Increment key to reset ErrorBoundary
     } catch (error) {
       console.error("Invalid code:", error);
       setComponent(null);
@@ -73,7 +75,7 @@ const GeneratedUi: React.FC<GeneratedUiProps> = ({ code }) => {
             <DS.Typography color="error">Error: {error}</DS.Typography>
           ) : (
             Component && (
-              <ErrorBoundary>
+              <ErrorBoundary key={key}>
                 <Component />
               </ErrorBoundary>
             )
