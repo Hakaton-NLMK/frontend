@@ -10,8 +10,8 @@ const GeneratedSourceCode: React.FC<GeneratedSourceCodeProps> = ({ code }) => {
     <DS.Grid>
       <DS.Grid.Row>
         <DS.Grid.Column width="100%">
-          <DS.Typography variant="Heading4">
-            Generated Source Code:
+          <DS.Typography variant="Subheading3" style={{ textAlign: "center" }}>
+            Generated Source Code
           </DS.Typography>
           <pre
             style={{

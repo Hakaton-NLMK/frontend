@@ -16,6 +16,7 @@ const App: React.FC = () => {
       <DS.Grid.Row>
         <DS.Grid.Column width="100%">
           <CodeGenerationForm onCodeGeneration={handleCodeGeneration} />
+          <DS.Divider />
           <CodeGenerationResults generatedCode={generatedCode} />
         </DS.Grid.Column>
       </DS.Grid.Row>

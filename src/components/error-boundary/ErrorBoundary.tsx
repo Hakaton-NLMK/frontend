@@ -1,4 +1,5 @@
 import React, { ErrorInfo, ReactNode } from "react";
+import { Alert } from "@nlmk/ds-2.0";
 
 export default class ErrorBoundary extends React.Component<
   { children: ReactNode },
@@ -20,10 +21,9 @@ export default class ErrorBoundary extends React.Component<
   render() {
     if (this.state.hasError) {
       return (
-        <div style={{ color: "red", marginTop: "10px" }}>
-          <h3>Ошибка рендеринга:</h3>
+        <Alert severity="error" title="Ошибка рендеринга">
           <p>{this.state.error?.message}</p>
-        </div>
+        </Alert>
       );
     }
 
