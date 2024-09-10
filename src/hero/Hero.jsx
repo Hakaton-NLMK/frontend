@@ -47,7 +47,7 @@ function Hero() {
         <img src={logo} className={style.logo} alt="logo" />
         <input id='btn' className={style.input} type="text" placeholder='Введите код компонента / Write code component' />
         <button  onClick={render} className={style.btn}>Render</button>
-
+         <div id='data' className={style.data}></div>
     </div>
   )
 }
