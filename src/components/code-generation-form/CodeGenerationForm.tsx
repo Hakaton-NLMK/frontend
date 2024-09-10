@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import logo from "./logo.svg";
 import styles from "./code-generation-form.module.css";
-import { Spinner } from "@nlmk/ds-2.0";
+import { Spinner, Button, Input } from "@nlmk/ds-2.0";
 
 const CodeGenerationForm: React.FC = () => {
   const [inputValue, setInputValue] = useState<string>("");
@@ -9,7 +9,9 @@ const CodeGenerationForm: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setInputValue(e.target.value);
   };
 
@@ -54,20 +56,20 @@ const CodeGenerationForm: React.FC = () => {
     <div className={styles.hero}>
       <img src={logo} className={styles.logo} alt="logo" />
       <form onSubmit={handleSubmit} className={styles.form}>
-        <input
-          className={styles.input}
+        <Input
           type="text"
           value={inputValue}
           onChange={handleInputChange}
-          placeholder="Введите код компонента / Write code component"
+          className={styles.input}
+          label="Введите код компонента / Write code component"
         />
-        <button
+        <Button
           type="submit"
           className={styles.btn}
           disabled={isLoading || !inputValue}
         >
-          RENDER
-        </button>
+          Render
+        </Button>
       </form>
       {error && <div className={`${styles.error} error`}>{error}</div>}
       {sourceCode && (
