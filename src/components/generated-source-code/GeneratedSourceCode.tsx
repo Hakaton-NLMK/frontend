@@ -13,13 +13,20 @@ const GeneratedSourceCode: React.FC<GeneratedSourceCodeProps> = ({ code }) => {
           <DS.Typography variant="Heading4">
             Generated Source Code:
           </DS.Typography>
-          <DS.Input
-            multiline
-            resize
-            value={code}
-            readOnly
-            placeholder="Generated code will appear here"
-          />
+          <pre
+            style={{
+              whiteSpace: "pre-wrap",
+              wordBreak: "break-word",
+              margin: 0,
+              padding: "16px",
+              backgroundColor: "#f5f5f5",
+              borderRadius: "4px",
+              fontSize: "14px",
+              lineHeight: "1.5",
+            }}
+          >
+            {code || "Generated code will appear here"}
+          </pre>
         </DS.Grid.Column>
       </DS.Grid.Row>
     </DS.Grid>
