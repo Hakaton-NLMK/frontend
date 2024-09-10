@@ -24,7 +24,7 @@ const CodeGenerationForm: React.FC = () => {
 
     try {
       const response = await fetch(
-        "http://84.201.147.205:8000/api/v1/generate-component",
+        "https://hackthonnlmk.ddns.net/api/v1/generate-component",
         {
           method: "POST",
           headers: {
