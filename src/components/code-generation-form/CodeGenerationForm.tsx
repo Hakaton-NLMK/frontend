@@ -3,9 +3,14 @@ import logo from "./logo.svg";
 import styles from "./code-generation-form.module.css";
 import { Spinner, Button, Input } from "@nlmk/ds-2.0";
 
-const CodeGenerationForm: React.FC = () => {
+interface CodeGenerationFormProps {
+  onCodeGeneration: (code: string) => void;
+}
+
+const CodeGenerationForm: React.FC<CodeGenerationFormProps> = ({
+  onCodeGeneration,
+}) => {
   const [inputValue, setInputValue] = useState<string>("");
-  const [sourceCode, setSourceCode] = useState<string>("");
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -18,7 +23,6 @@ const CodeGenerationForm: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError(null);
-    setSourceCode("");
     setIsLoading(true);
 
     try {
@@ -38,7 +42,7 @@ const CodeGenerationForm: React.FC = () => {
       }
 
       const data: string = await response.json();
-      setSourceCode(data);
+      onCodeGeneration(data);
       setInputValue("");
     } catch (error) {
       console.error("There was a problem with the fetch operation:", error);
@@ -68,15 +72,10 @@ const CodeGenerationForm: React.FC = () => {
           className={styles.btn}
           disabled={isLoading || !inputValue}
         >
-          Render
+          Generate
         </Button>
       </form>
       {error && <div className={`${styles.error} error`}>{error}</div>}
-      {sourceCode && (
-        <div className={styles.data}>
-          <pre>{sourceCode}</pre>
-        </div>
-      )}
       {isLoading && (
         <div className={styles.overlay}>
           <Spinner />
