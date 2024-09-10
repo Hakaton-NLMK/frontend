@@ -1,5 +1,3 @@
-@import "../node_modules/@nlmk/ds-2.0/lib/css/main.css";
-
 /* Reset default styles */
 * {
   margin: 0;
@@ -47,6 +45,8 @@ h5,
 h6 {
   overflow-wrap: break-word;
 }
+
+@import "../node_modules/@nlmk/ds-2.0/lib/css/main.css";
 
 #root {
   height: 100%;
