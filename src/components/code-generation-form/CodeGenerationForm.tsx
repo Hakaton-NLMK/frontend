@@ -1,17 +1,13 @@
 import React, { useState } from "react";
 import logo from "./logo.svg";
 import styles from "./code-generation-form.module.css";
-
-interface GenerateComponentResponse {
-  // Define the expected structure of the API response
-  // For example:
-  component: string;
-}
+import { Spinner } from "@nlmk/ds-2.0";
 
 const CodeGenerationForm: React.FC = () => {
   const [inputValue, setInputValue] = useState<string>("");
-  const [generatedComponent, setGeneratedComponent] = useState<string>("");
+  const [sourceCode, setSourceCode] = useState<string>("");
   const [error, setError] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
@@ -20,7 +16,8 @@ const CodeGenerationForm: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError(null);
-    setGeneratedComponent("");
+    setSourceCode("");
+    setIsLoading(true);
 
     try {
       const response = await fetch(
@@ -38,8 +35,8 @@ const CodeGenerationForm: React.FC = () => {
         throw new Error("Network response was not ok");
       }
 
-      const data: GenerateComponentResponse = await response.json();
-      setGeneratedComponent(data.component);
+      const data: string = await response.json();
+      setSourceCode(data);
       setInputValue("");
     } catch (error) {
       console.error("There was a problem with the fetch operation:", error);
@@ -48,6 +45,8 @@ const CodeGenerationForm: React.FC = () => {
           error instanceof Error ? error.message : String(error)
         }`
       );
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -62,14 +61,19 @@ const CodeGenerationForm: React.FC = () => {
           onChange={handleInputChange}
           placeholder="Введите код компонента / Write code component"
         />
-        <button type="submit" className={styles.btn}>
+        <button type="submit" className={styles.btn} disabled={isLoading}>
           RENDER
         </button>
       </form>
       {error && <div className={`${styles.error} error`}>{error}</div>}
-      {generatedComponent && (
+      {sourceCode && (
         <div className={styles.data}>
-          <pre>{generatedComponent}</pre>
+          <pre>{sourceCode}</pre>
+        </div>
+      )}
+      {isLoading && (
+        <div className={styles.overlay}>
+          <Spinner />
         </div>
       )}
     </div>
