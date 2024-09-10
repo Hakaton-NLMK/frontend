@@ -61,7 +61,11 @@ const CodeGenerationForm: React.FC = () => {
           onChange={handleInputChange}
           placeholder="Введите код компонента / Write code component"
         />
-        <button type="submit" className={styles.btn} disabled={isLoading}>
+        <button
+          type="submit"
+          className={styles.btn}
+          disabled={isLoading || !inputValue}
+        >
           RENDER
         </button>
       </form>
