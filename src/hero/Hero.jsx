@@ -1,8 +1,9 @@
 import React from 'react'
 import logo from './logo.svg'
 import style from './hero.module.css'
-let e=''
+
 function render(){
+  let e=''
   document.getElementById('con')?document.getElementById('con').remove():console.log('aaa')
   let value=document.getElementById('btn').value
   console.log(typeof(value))
