@@ -3,6 +3,7 @@ import * as DS from "@nlmk/ds-2.0";
 import * as Babel from "@babel/standalone";
 import { customExportDefaultPlugin } from "../../shared/babel-plugins/customExportDefaultPlugin";
 import ErrorBoundary from "../error-boundary/ErrorBoundary";
+import { ensureReactImport } from "../../shared/ensureReactImportPlugin";
 
 interface GeneratedUiProps {
   code: string;
@@ -21,7 +22,7 @@ const GeneratedUi: React.FC<GeneratedUiProps> = ({ code }) => {
 
   const renderComponent = (code: string) => {
     try {
-      const codeWithReactImport = `import React from "react";\n${code}`;
+      const codeWithReactImport = ensureReactImport(code);
 
       const transformedCode = Babel.transform(codeWithReactImport, {
         presets: [
