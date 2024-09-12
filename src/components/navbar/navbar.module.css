@@ -1,31 +1,7 @@
-.container{
-    padding:20px;
-    background-image: linear-gradient(to right,#008fff , #005699);
-    display: flex;
-    justify-content: end;
-    gap: 18px;
+.navbar {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-.link{
-    list-style: none;
-    display: flex;
-    justify-content: space-between;
-    text-decoration: none;
-    
-    gap: 8px;
-    
-}
-.link a{
-    color: white;
-    text-decoration: none;
-}
-.slash{
-    margin-left: 4px;
-}
-.midea{
-    list-style: none;
-    display: flex;
-    justify-content: space-between;
-    text-decoration: none;
-    
-    gap: 8px;
+
+.title {
+  margin-left: 16px;
 }

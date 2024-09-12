@@ -1,31 +1,24 @@
 import React from "react";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import TwitterIcon from "@mui/icons-material/Twitter";
-import YouTubeIcon from "@mui/icons-material/YouTube";
-import style from "./navbar.module.css";
+import * as DS from "@nlmk/ds-2.0";
+import Logo from "../logo/Logo";
+import styles from "./navbar.module.css";
 
 const Navbar: React.FC = () => {
   return (
-    <header className={style.header}>
-      <div className={style.container}>
-        <ul className={style.link}>
-          <a href="#">
-            Home <span className={style.slash}>/</span>
-          </a>
-          <a href="#">
-            Contact <span className={style.slash}>/</span>
-          </a>
-          <a href="#">About us</a>
-        </ul>
-        <ul className={style.midea}>
-          <a href="#">{<TwitterIcon style={{ color: "white" }} />}</a>
-          <a href="#">{<FacebookIcon style={{ color: "white" }} />} </a>
-          <a href="#">{<InstagramIcon style={{ color: "white" }} />}</a>
-          <a href="#">{<YouTubeIcon style={{ color: "white" }} />}</a>
-        </ul>
-      </div>
-    </header>
+    <DS.Box className={styles.navbar} background="var(--background-primary)">
+      <DS.Box
+        display="flex"
+        alignItems="center"
+        justifyContent="flex-start"
+        height="64px"
+        px="var(--64-space)"
+      >
+        <Logo height={40} />
+        <DS.Typography variant="Subheading2-Medium" className={styles.title}>
+          UI Generator
+        </DS.Typography>
+      </DS.Box>
+    </DS.Box>
   );
 };
 
