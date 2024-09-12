@@ -57,8 +57,7 @@ const CodeGenerationForm: React.FC<CodeGenerationFormProps> = ({
   };
 
   return (
-    <div className={styles.hero}>
-      <img src={logo} className={styles.logo} alt="logo" />
+    <div className={styles.container}>
       <form onSubmit={handleSubmit} className={styles.form}>
         <Input
           type="text"

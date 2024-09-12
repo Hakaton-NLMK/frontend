@@ -27,13 +27,12 @@ const RenderFromSourceCode: React.FC<RenderFromSourceCodeProps> = ({
     <div className={styles.container}>
       <form onSubmit={handleSubmit} className={styles.form}>
         <Input
+          className={styles.input}
           type="text"
           value={sourceCode}
           onChange={handleInputChange}
-          className={styles.input}
           label="Вставьте исходный код / Paste source code"
           multiline
-          rows={10}
         />
         <Button type="submit" className={styles.btn} disabled={!sourceCode}>
           Render
