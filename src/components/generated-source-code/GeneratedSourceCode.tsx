@@ -11,7 +11,7 @@ const GeneratedSourceCode: React.FC<GeneratedSourceCodeProps> = ({ code }) => {
       <DS.Grid.Row>
         <DS.Grid.Column width="100%">
           <DS.Typography variant="Subheading3" style={{ textAlign: "center" }}>
-            Generated Source Code
+            Исходный код
           </DS.Typography>
           <pre
             style={{
@@ -25,7 +25,7 @@ const GeneratedSourceCode: React.FC<GeneratedSourceCodeProps> = ({ code }) => {
               lineHeight: "1.5",
             }}
           >
-            {code || "Generated code will appear here"}
+            {code || "Здесь будет сгенерированный исходный код"}
           </pre>
         </DS.Grid.Column>
       </DS.Grid.Row>

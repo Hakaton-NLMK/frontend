@@ -64,7 +64,7 @@ const CodeGenerationForm: React.FC<CodeGenerationFormProps> = ({
           value={inputValue}
           onChange={handleInputChange}
           className={styles.input}
-          label="Введите запрос для генерации интерфейса / Write request for UI generation"
+          label="Введите запрос для генерации интерфейса"
         />
         <Button
           type="submit"

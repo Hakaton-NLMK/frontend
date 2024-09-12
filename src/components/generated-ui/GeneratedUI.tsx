@@ -69,7 +69,7 @@ const GeneratedUi: React.FC<GeneratedUiProps> = ({ code }) => {
       <DS.Grid.Row>
         <DS.Grid.Column width="100%">
           <DS.Typography variant="Subheading3" style={{ textAlign: "center" }}>
-            Rendered UI
+            Сгенерированный UI
           </DS.Typography>
           {error ? (
             <DS.Typography color="error">Error: {error}</DS.Typography>

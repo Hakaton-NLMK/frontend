@@ -15,7 +15,7 @@ const Navbar: React.FC = () => {
       >
         <Logo height={40} />
         <DS.Typography variant="Subheading2-Medium" className={styles.title}>
-          UI Generator
+          Генератор интерфейсов
         </DS.Typography>
       </DS.Box>
     </DS.Box>

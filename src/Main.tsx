@@ -21,12 +21,12 @@ const Main: React.FC = () => {
         <DS.Grid.Row>
           <DS.Grid.Column width="100%">
             <div className={styles.switchContainer}>
-              <span>Generate Code</span>
+              <span>Сгенерировать код</span>
               <DS.Switch
                 checked={isPasteMode}
                 onChange={() => setIsPasteMode(!isPasteMode)}
               />
-              <span>Paste Code</span>
+              <span>Вставить код</span>
             </div>
             {isPasteMode ? (
               <RenderFromSourceCode onCodeSubmission={handleCodeGeneration} />

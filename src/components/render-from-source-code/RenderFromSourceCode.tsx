@@ -31,7 +31,7 @@ const RenderFromSourceCode: React.FC<RenderFromSourceCodeProps> = ({
           type="text"
           value={sourceCode}
           onChange={handleInputChange}
-          label="Вставьте исходный код / Paste source code"
+          label="Вставьте исходный код"
           multiline
         />
         <Button type="submit" className={styles.btn} disabled={!sourceCode}>
