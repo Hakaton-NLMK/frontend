@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import logo from "./logo.svg";
 import styles from "./code-generation-form.module.css";
 import { Spinner, Button, Input } from "@nlmk/ds-2.0";
 
@@ -65,13 +64,14 @@ const CodeGenerationForm: React.FC<CodeGenerationFormProps> = ({
           onChange={handleInputChange}
           className={styles.input}
           label="Введите запрос для генерации интерфейса"
+          multiline
         />
         <Button
           type="submit"
           className={styles.btn}
           disabled={isLoading || !inputValue}
         >
-          Generate
+          Сгенерировать
         </Button>
       </form>
       {error && <div className={`${styles.error} error`}>{error}</div>}

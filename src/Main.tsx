@@ -20,6 +20,13 @@ const Main: React.FC = () => {
       <DS.Grid className={styles.App}>
         <DS.Grid.Row>
           <DS.Grid.Column width="100%">
+            <div className={styles.logoContainer}>
+              <img
+                src={`${process.env.PUBLIC_URL}/logo512.png`}
+                className={styles.logo}
+                alt="logo"
+              />
+            </div>
             <div className={styles.switchContainer}>
               <span>Сгенерировать код</span>
               <DS.Switch

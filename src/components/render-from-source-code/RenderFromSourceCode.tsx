@@ -35,7 +35,7 @@ const RenderFromSourceCode: React.FC<RenderFromSourceCodeProps> = ({
           multiline
         />
         <Button type="submit" className={styles.btn} disabled={!sourceCode}>
-          Render
+          Отобразить
         </Button>
       </form>
     </div>
