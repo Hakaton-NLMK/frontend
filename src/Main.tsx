@@ -20,26 +20,25 @@ const Main: React.FC = () => {
       <DS.Grid className={styles.App}>
         <DS.Grid.Row>
           <DS.Grid.Column width="100%">
-            <div className={styles.logoContainer}>
-              <img
-                src={`${process.env.PUBLIC_URL}/logo512.png`}
-                className={styles.logo}
-                alt="logo"
-              />
-            </div>
-            <div className={styles.switchContainer}>
-              <span>Сгенерировать код</span>
-              <DS.Switch
-                checked={isPasteMode}
-                onChange={() => setIsPasteMode(!isPasteMode)}
-              />
-              <span>Вставить код</span>
-            </div>
-            {isPasteMode ? (
-              <RenderFromSourceCode onCodeSubmission={handleCodeGeneration} />
-            ) : (
-              <CodeGenerationForm onCodeGeneration={handleCodeGeneration} />
-            )}
+            <DS.Box display="flex" justifyContent="center" py="var(--8-space)">
+              <DS.Box flexDirection="column" gap="10px" width="fit-content">
+                <div className={styles.switchContainer}>
+                  <span>Сгенерировать код</span>
+                  <DS.Switch
+                    checked={isPasteMode}
+                    onChange={() => setIsPasteMode(!isPasteMode)}
+                  />
+                  <span>Вставить код</span>
+                </div>
+                {isPasteMode ? (
+                  <RenderFromSourceCode
+                    onCodeSubmission={handleCodeGeneration}
+                  />
+                ) : (
+                  <CodeGenerationForm onCodeGeneration={handleCodeGeneration} />
+                )}
+              </DS.Box>
+            </DS.Box>
             <DS.Divider />
             <CodeGenerationResults generatedCode={generatedCode} />
           </DS.Grid.Column>

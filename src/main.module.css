@@ -5,7 +5,6 @@
 .switchContainer {
   display: flex;
   align-items: center;
-  justify-content: center;
 }
 
 .switchContainer span {

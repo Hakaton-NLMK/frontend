@@ -66,11 +66,7 @@ const CodeGenerationForm: React.FC<CodeGenerationFormProps> = ({
           label="Введите запрос для генерации интерфейса"
           multiline
         />
-        <Button
-          type="submit"
-          className={styles.btn}
-          disabled={isLoading || !inputValue}
-        >
+        <Button type="submit" disabled={isLoading || !inputValue}>
           Сгенерировать
         </Button>
       </form>
